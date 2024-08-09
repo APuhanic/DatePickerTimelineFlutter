@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   DatePickerController _controller = DatePickerController();
 
-  DateTime _selectedValue = DateTime.now();
+  DateTime? _selectedValue = DateTime.now();
 
   @override
   void initState() {

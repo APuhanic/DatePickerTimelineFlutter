@@ -210,17 +210,12 @@ class _DatePickerState extends State<DatePicker> {
                   onDateSelected: (selectedDate) {
                     if (isDeactivated) return;
 
-                    // Check if the same date is clicked again to deselect it
                     setState(() {
-                      if (isSelected) {
-                        _currentDate = null;
-                      } else {
-                        _currentDate = selectedDate;
-                      }
+                      _currentDate = isSelected ? null : selectedDate;
                     });
 
-                    // Notify listener if a different date is selected or deselected
-                    widget.onDateChange?.call(_currentDate!);
+                    // Notify listener with the current date (can be null)
+                    widget.onDateChange?.call(_currentDate);
                   },
                 );
               case CalendarType.persianDate:
